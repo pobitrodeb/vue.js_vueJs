@@ -11,14 +11,24 @@
 <body>
     <h1 class="text-center text-success bg-dark py-2"> Install Vue Js  </h1>
 
-    
+    <div id="app">
+        {{message}}
+    </div>
    
     <script src="js/bootstrap.bundle.js"></script>
-
     <script src="js/jquery-3.6.1.min.js"></script>
-
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
     <script src="js/main.js"></script>
+    <script>
+        const { createApp } = Vue
+      
+        createApp({
+          data() {
+            return {
+              message: 'Hello Vue!'
+            }
+          }
+        }).mount('#app')
+      </script>
 </body>
 </html>
