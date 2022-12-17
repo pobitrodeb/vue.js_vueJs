@@ -15,6 +15,9 @@ var app = Vue.createApp({
 
         incress(){
             this.count = this.count+1; 
+        },
+        decress(){
+            this.count = this.count-1; 
         }
 
     },
