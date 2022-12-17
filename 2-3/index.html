@@ -23,8 +23,12 @@
 
                 <!-- method calling  -->
               <p> <strong>Now time is :</strong> {{ getCurrentTime() }}</p>
-              
-               
+                <!-- event calling  -->
+               <div class="counter mt-5">
+                    <h3>Count : {{ count }}</h3>
+                    <button class="btn btn-primary mx-5" v-on:click="incress"> Increment</button>
+                  
+               </div>
             </div>
         </div>
       

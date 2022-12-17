@@ -12,6 +12,11 @@ var app = Vue.createApp({
             let ct = new Date(); 
             return new Date();
         }, 
+
+        incress(){
+            this.count = this.count+1; 
+        }
+
     },
 });
 
