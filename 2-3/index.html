@@ -27,7 +27,12 @@
                <div class="counter mt-5">
                     <h3>Count : {{ count }}</h3>
                     <button class="btn btn-primary mx-5" v-on:click="incress"> Increment</button>
-                    <button class="btn btn-danger mx-5" v-on:click="decress"> Decrement</button>
+                    <button class="btn btn-danger mx-5" v-on:click="decress"> Decrement</button> <br> <br>
+                    
+
+                    <!-- short hand method calling  -->
+                    <button class="btn btn-primary mx-5" @click="incress"> use short hand method Increment</button>
+                    <button class="btn btn-danger mx-5" @click="decress"> use short hand Decrement</button>
                </div>
             </div>
         </div>
