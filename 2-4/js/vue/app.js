@@ -8,7 +8,10 @@ var app = Vue.createApp({
 
     methods: {
         
-
+        test(event){
+            console.log("test");
+            console.log(event);
+        }
     },
 });
 
