@@ -20,9 +20,9 @@
     <section>
         <div class="container">
             <div id="app">
-                <button class="btn btn-sm btn-bordered" type="button" @click="setClass('red')">Red </button>
-                <button class="btn btn-sm btn-bordered" type="button" @click="setClass('green')">Green</button>
-                <button class="btn btn-sm btn-bordered" type="button" @click="setClass('black')">Black</button>
+                <button :class="{active: activeClass == 'red'}" class="btn btn-sm btn-bordered m-2" @click="setClass('red')">Red </button>
+                <button :class="{active: activeClass == 'green'}" class="btn btn-sm btn-bordered m-2" @click="setClass('green')">Green</button>
+                <button :class="{active: activeClass == 'black'}" class="btn btn-sm btn-bordered m-2"  @click="setClass('black')">Black</button>
 
                 <div :class="activeClass">
                 </div>
