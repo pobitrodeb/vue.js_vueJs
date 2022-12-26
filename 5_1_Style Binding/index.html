@@ -15,16 +15,31 @@
     <script src="./js/vue/vue.global.js"></script>
 </head>
 <body>
-    <section class="py-5"><div class="container">  <h4 class="text-center text-danger text-capitalize"> <u> color choice </u> </h4> </div></section>
+    <section class="py-5"><div class="container">  <h4 class="text-center text-danger text-capitalize"> <u> Style Binding </u> </h4> </div></section>
 
     <section>
        
         <div class="container">
             <div id="app">
-                <input type="email" class="form-control my-5 w-50" v-model="bgColor" placeholder="Enter Color Name ">
-                    <div class="box" :style=" 'background-color:' + bgColor">
-                        <h3></h3>
-                       
+               <div class="row">
+                <div class="col-md-6">
+                    <input type="text" class="form-control my-5 " v-model="textColor" placeholder="Enter Text Color Name ">
+                </div>
+                <div class="col-md-1">
+                    <input type="color" class="form-control my-5" v-model="textColor">
+                </div>
+               </div>
+               <div class="row">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control my-5" v-model="bgColor" placeholder="Enter background Color "> 
+                    
+                    </div>
+                    <div class="col-md-1">
+                        <input type="color" class="form-control my-5" v-model="bgColor">
+                    </div>
+               </div>
+                <div class="box" :style="{backgroundColor: bgColor, color:textColor}">
+                        <h1>This is Text.. </h1>
                     </div>
                     <p class="text-danger">&copy; pobitrodebnt</p>
                 </div>
