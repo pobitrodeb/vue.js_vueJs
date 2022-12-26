@@ -15,17 +15,21 @@
     <script src="./js/vue/vue.global.js"></script>
 </head>
 <body>
-    <section class="py-5"><div class="container">  <h4 class="text-center text-danger text-capitalize"> <u> Style Binding </u> </h4> </div></section>
+    <section class="py-5"><div class="container">  <h4 class="text-center text-danger text-capitalize"> <u> color choice </u> </h4> </div></section>
 
     <section>
+       
         <div class="container">
             <div id="app">
-                    <div class="card" :style=" 'background-color:' + bgColor">
-                        <h3>VueJs Style Binding</h3>
+                <input type="email" class="form-control my-5 w-50" v-model="bgColor" placeholder="Enter Color Name ">
+                    <div class="box" :style=" 'background-color:' + bgColor">
+                        <h3></h3>
+                       
                     </div>
+                    <p class="text-danger">&copy; pobitrodebnt</p>
                 </div>
             </div>
-
+        
         </div> 
     </section>
 
