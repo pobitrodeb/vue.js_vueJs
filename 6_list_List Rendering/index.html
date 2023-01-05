@@ -22,11 +22,11 @@
             <div id="app">
                 <h3> Skills </h3>
                 <input type="text" v-model="newSkill" placeholder="Add New Skill">
-                <button @click="addSkill">Add New </button>
+                <button @click="addSkill" class="m-2">Add New </button>
                     <ul>
                        
-                        <li v-for="skill in skills">
-                            {{ skill }}
+                        <li v-for="(skill, index) in skills" @click="removeSkill(index)">
+                            {{ index+1 }} {{ skill }}
                         </li>
                     </ul>
               </div>

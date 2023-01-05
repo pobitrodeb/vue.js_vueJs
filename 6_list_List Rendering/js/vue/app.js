@@ -10,6 +10,9 @@ var app = Vue.createApp({
     methods: {
         addSkill(){
             this.skills.push(this.newSkill);
+        }, 
+        removeSkill(index){
+            this.skills.splice(index, 1);
         }
     },
 });
