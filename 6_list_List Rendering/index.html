@@ -26,7 +26,8 @@
                     <ul>
                        
                         <li v-for="(skill, index) in skills" @click="removeSkill(index)">
-                            {{ index+1 }} {{ skill }}
+                            <!-- {{ index+1 }} {{ skill }} -->
+                            {{ skill.name}} ({{ skill.project_exprience }})
                         </li>
                     </ul>
               </div>
