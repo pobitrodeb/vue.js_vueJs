@@ -20,7 +20,12 @@
     <section>
            <div class="container">
             <div id="app">
-               
+              <h2>Skills </h2>
+               <ul>
+                <li v-for="(skill, index) in skills" @click="removeList(index)">
+                  {{ skill.name }}, ({{ skill.project }})
+                </li>
+               </ul>
               </div>
            </div>
     </section>
