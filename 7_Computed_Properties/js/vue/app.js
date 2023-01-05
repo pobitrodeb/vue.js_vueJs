@@ -15,6 +15,10 @@ var app = Vue.createApp({
     methods: {
         removeList(index){
             this.skills.splice(index, 1);
+        }, 
+        totoalSkillCount()
+        {
+            return this.skills.length;
         }
     },
 });

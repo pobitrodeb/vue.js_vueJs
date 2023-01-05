@@ -22,10 +22,11 @@
             <div id="app">
               <h2>Skills </h2>
                <ul>
-                <li v-for="(skill, index) in skills" @click="removeList(index)">
+                <li v-for="(skill, index) in skills" @click="removeList(index)" ::key="skill.index">
                   {{ skill.name }}, ({{ skill.project }})
                 </li>
                </ul>
+               <h3>Total : {{ totoalSkillCount() }}</h3>
               </div>
            </div>
     </section>
