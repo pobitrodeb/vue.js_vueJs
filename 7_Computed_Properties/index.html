@@ -26,7 +26,13 @@
                   {{ skill.name }}, ({{ skill.project }})
                 </li>
                </ul>
-               <h3>Total : {{  totalSkillCount }}</h3>
+               <h3>Total : {{ totalSkillCount }}</h3>
+               <h3>Project Skill</h3>
+               <ul>
+                <li v-for="(project, index) in projectSkill" @click="removeList(index)" ::key="project.index">
+                  {{ project.name }}, ({{ project.project }})
+                </li>
+               </ul>
               </div>
            </div>
     </section>

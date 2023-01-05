@@ -16,6 +16,14 @@ var app = Vue.createApp({
          totalSkillCount()
         {
             return this.skills.length;
+        }, 
+
+        projectSkill()
+        {
+            let projects = this.skills.filter(iteam =>{
+                return iteam.project >= 10
+            });
+            return projects;
         }
     },
 
