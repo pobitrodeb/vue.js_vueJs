@@ -12,14 +12,21 @@ var app = Vue.createApp({
 
     }, 
 
+    computed:{
+         totalSkillCount()
+        {
+            return this.skills.length;
+        }
+    },
+
     methods: {
         removeList(index){
             this.skills.splice(index, 1);
         }, 
-        totoalSkillCount()
-        {
-            return this.skills.length;
-        }
+        // totoalSkillCount()
+        // {
+        //     return this.skills.length;
+        // }
     },
 });
 
