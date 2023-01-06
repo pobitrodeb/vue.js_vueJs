@@ -2,7 +2,7 @@ var app1 = Vue.createApp({
     data(){
         return {
             name: "",
-            message: "Congratulations, Pobitoro Debnath",
+            // message: "Congratulations, Pobitoro Debnath",
         }
 
     }, 
