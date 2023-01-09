@@ -1,21 +1,33 @@
 <template>
- <div class="card">
-  <div class="products" v-for="product in products" :key="product.id">
-   <img :src="product.image" alt="">
-    <h4> {{ product.title }}</h4>
-    <p>{{ product.price }}</p>
+  <div clas="card">
+     <product  v-for="product in products" 
+     :key="product.id" 
+     :title="product.title" 
+     :image="product.image"
+     >
+     </product>
   </div>
- </div>
 </template>
 
 <script>
 import axios from 'axios';
+import Product from '../components/Product.vue';
 export default {
   data(){
     return {
       product: [],
     };
   },
+  props: {
+        title:String, 
+        image: {
+            type: String, 
+            required:true,
+        },
+    },
+  components: {
+        Product,
+    },
  mounted(){
  axios.get('https://fakestoreapi.com/products').then(res => {
   this.products = res.data;
@@ -29,11 +41,5 @@ export default {
 </script>
 
 <style>
-.card{
-  display: flex;
-  justify-content: space-around;
-}
-.card img{
-    width: 70%;
-}
+
 </style>
