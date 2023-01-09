@@ -6,7 +6,12 @@
 import axios from 'axios';
 export default {
  mounted(){
-  console.log('hello vue');
+ axios.get('https://fakestoreapi.com/products').then(res => {
+  console.log(res); 
+ })
+ .catch((e) => { 
+  console.log(res); 
+  });
  },
 };
 </script>
