@@ -1,9 +1,14 @@
 <template>
-  <div>
-    
-  </div>
+  <div></div>
 </template>
 
-<style>
+<script>
+import axios from 'axios';
+export default {
+ mounted(){
+  console.log('hello vue');
+ },
+};
+</script>
 
-</style>
+<style></style>
