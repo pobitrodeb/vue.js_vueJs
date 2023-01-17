@@ -11,6 +11,9 @@ var app = createApp({
       message: "This data form mainJs",
     };
   },
+  render() {
+    return "Hello World";
+  },
   template: `
     <div>
         <h1> {{ message }} </h1>
