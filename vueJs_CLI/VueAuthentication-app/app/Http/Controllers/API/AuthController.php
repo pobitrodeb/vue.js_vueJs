@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Exception;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -27,6 +30,27 @@ class AuthController extends Controller
                 'message' => 'Validation errors',
                 'data'    => $validator->errors(),
             ], 422);
-        return $request->all();
+
+            try{
+              $user =   User::create([
+                    'name'          => $request->name,
+                    'email'         => $request->email,
+                    'password'      => Hash::make($request->password),
+                ]);
+
+                return response()->json([
+                    'status'  => true,
+                    'message' => 'User Registration Done Successfully',
+                    'name'    => $user->name,
+
+                 ]);
+
+                }catch(Exception $e){
+                    return response()->json([
+                        'message' => $e->getMessage()
+                    ], $e->getMessage());
+                }
+
+        // return $request->all();
     }
 }
