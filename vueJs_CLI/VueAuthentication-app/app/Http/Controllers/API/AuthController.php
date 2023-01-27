@@ -8,11 +8,33 @@ use Illuminate\Support\Facades\Validator;
 use Exception;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\HasApiTokens;
 
 class AuthController extends Controller
 {
     public function login(Request $request)
     {
+
+        $validator =  Validator::make($request->all(),[
+            "email" => "required",
+            "password" => "required|min:4"
+        ]);
+
+        if($validator->fails())
+        return send_error('Validation error', $validator->errors(), 422);
+
+        $credentials = $request->only('email', 'password');
+    //    if(Auth::attempt(['email' => $email, 'password' => $password]));
+        if(Auth::attempt($credentials)){
+            $user = Auth::user();
+            $data['name'] = $user->name;
+            $data['access_token'] = $user->createToken('accessToken')->accessToken;
+
+            return send_response('Login Success', $data);
+        }else {
+            return send_error('You are Authorize', '', 401);
+        }
 
     }
 
