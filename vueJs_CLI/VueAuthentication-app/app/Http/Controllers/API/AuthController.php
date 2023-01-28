@@ -29,11 +29,13 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)){
             $user = Auth::user();
             $data['name'] = $user->name;
-            $data['access_token'] = $user->createToken('accessToken')->accessToken;
+            // $data['access_token'] = $user->createToken('accessToken')->accessToken;
+            $data['access_token'] = $user->createToken('accessToken')->plainTextToken;
 
             return send_response('Login Success', $data);
+
         }else {
-            return send_error('You are Authorize', '', 401);
+            return send_error('You are unAuthorize', '', 401);
         }
 
     }
