@@ -75,4 +75,12 @@ class AuthController extends Controller
 
         // return $request->all();
     }
+
+    public function logout(Request $request){
+    //    return $request->bearerToken();
+        return auth()->user()->token();
+    }
+    public function show(){
+
+    }
 }
