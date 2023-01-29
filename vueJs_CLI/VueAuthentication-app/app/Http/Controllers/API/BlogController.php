@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controllers\Controller;
+use App\Http\Resources\BlogResource;
 
 class BlogController extends Controller
 {
@@ -17,7 +18,7 @@ class BlogController extends Controller
     {
         $blogs  = Blog::all();
 
-        return send_response('success', $blogs);
+        return send_response('success', BlogResource::collection($blogs));
     }
 
     /**
@@ -47,9 +48,9 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Blog $id)
     {
-        $blog = Blog::findo($blog);
+        $blog = Blog::find($id);
 
         if($blog)
             return send_response('Success', $blog);
