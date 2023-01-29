@@ -15,7 +15,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs  = Blog::all();
+
+        return send_response('success', $blogs);
     }
 
     /**
@@ -47,7 +49,12 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        //
+        $blog = Blog::findo($blog);
+
+        if($blog)
+            return send_response('Success', $blog);
+        else
+            return send_error('Data Not Found');
     }
 
     /**
