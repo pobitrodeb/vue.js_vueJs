@@ -78,7 +78,7 @@ class AuthController extends Controller
 
     public function logout(Request $request){
     //    return $request->bearerToken();
-        return auth()->user()->token();
+        return auth()->user()->token()->revoke();
     }
     public function show(){
 
