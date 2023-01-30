@@ -6,6 +6,7 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controllers\Controller;
 use App\Http\Resources\BlogResource;
+use Illuminate\Validation\Validator;
 use Exception;
 
 class BlogController extends Controller
@@ -40,7 +41,37 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validator =  Validator::make($request->all(),[
+            "title" => "required|min:10",
+            "description" => "required",
+
+        ]);
+
+        if($validator->fails())
+            // return response()->json([
+            //     'message' => 'Validation errors',
+            //     'data'    => $validator->errors(),
+            // ], 422);
+            return send_error('Validation error', $validator->errors(), 422);
+            try{
+                $blog = Blog::create([
+                        'title'                 => $request->title,
+                        'description'           => $request->description,
+
+                    ]);
+
+                    $data = [
+                        'title' => $blog->title,
+                        'description' => $blog->description
+                    ];
+
+                    return send_response('Blog Create Successfully', $data);
+
+                }catch(Exception $e){
+                   return send_error($e->getMessage(), $e->getCode());
+                }
+
     }
 
     /**
@@ -90,9 +121,13 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        $blog = Blog::find($blog);
         try{
-            $blog->delete();
-            return send_response('Delete Success', []);
+           if($blog)
+           {
+                $blog->delete();
+           }
+           return send_response('Delete Success', []);
         }catch(Exception $e)
         {
             return send_error('Someting error', $e->getCode());
