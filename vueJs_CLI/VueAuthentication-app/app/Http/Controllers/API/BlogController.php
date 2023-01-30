@@ -18,7 +18,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs  = Blog::all();
+        $blogs  = Blog::orderBy('id', 'desc')->get();
 
         return send_response('success', BlogResource::collection($blogs));
     }
