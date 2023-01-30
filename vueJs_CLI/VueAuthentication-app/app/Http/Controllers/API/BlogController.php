@@ -110,7 +110,31 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+
+        $validator =  Validator::make($request->all(),[
+            "title" => "required|min:10",
+            "description" => "required",
+
+        ]);
+
+        if($validator->fails())
+
+            return send_error('Validation error', $validator->errors(), 422);
+            try{
+                $blog->title                 => $request->title;
+                $blog->description           => $request->description;
+                $blog->save();
+
+                    $data = [
+                        'title' => $blog->title,
+                        'description' => $blog->description
+                    ];
+
+                    return send_response('Blog Update Successfully', $data);
+
+                }catch(Exception $e){
+                   return send_error($e->getMessage(), $e->getCode());
+                }
     }
 
     /**
